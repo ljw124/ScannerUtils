@@ -5,7 +5,7 @@
 ## 说明：
 * 为了提高扫码速度，条形码只集成了EAN_13和CODE_128两种比较常用的编码格式。
 
-## ScannerUtils使用:
+##   以下是ScannerUtils的集成、使用教程，如果有不清楚的地方可以下载demo看看:
 Step 1.先在 build.gradle(Project:XXXX) 的 repositories 添加:
 ```javascript
 allprojects {
@@ -24,7 +24,7 @@ allprojects {
 	
 ```
  
-  Step 3. 在需要扫码时调用:
+  Step 3. 在需要扫码时调用(一般是点击扫码图标):
   ```javascript
   startActivityForResult(new Intent(MainActivity.this, CaptureActivity.class), CaptureActivity.REQUEST_CODE);
   ```
@@ -40,5 +40,4 @@ allprojects {
         }
     }
     ```
-    
-    ##以上是库的集成、使用教程，如果有不清楚的地方可以下载demo看看。
+ 
