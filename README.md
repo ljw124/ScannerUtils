@@ -19,7 +19,7 @@ allprojects {
   Step 2. 然后在 build.gradle(Module:app) 的 dependencies 添加:
   ```javascript
   dependencies {
-  		implementation 'com.github.ljw124:ScannerUtils:1.0.2'
+  		implementation 'com.github.ljw124:ScannerUtils:1.0.3'
 	}
 	
 ```
