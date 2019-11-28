@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by wanny-n1 on 2017/6/6.
+ * 弹框工具类
  */
 
 public class ToastUtils {

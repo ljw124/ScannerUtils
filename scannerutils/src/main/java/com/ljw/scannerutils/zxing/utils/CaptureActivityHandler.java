@@ -31,8 +31,6 @@ import com.ljw.scannerutils.zxing.decode.DecodeThread;
 /**
  * This class handles all the messaging which comprises the state machine for
  * capture.
- *
- * @author dswitkin@google.com (Daniel Switkin)
  */
 public class CaptureActivityHandler extends Handler {
 

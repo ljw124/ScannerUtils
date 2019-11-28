@@ -15,8 +15,6 @@ import androidx.annotation.NonNull;
 
 /**
  * 系统工具类
- * <p>
- * Created by wanny-n1 on 2017/1/3.
  */
 public class SystemUtils {
     public static boolean isActivityValid(Activity activity) {
