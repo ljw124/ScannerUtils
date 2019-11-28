@@ -25,7 +25,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-//    implementation 'cn.bertsir.zbarLibary:zbarlibary:1.4.0'
-    implementation 'com.google.zxing:core:3.3.3'
-    implementation project(path: ':scannerutils')
+
+    implementation 'com.github.ljw124:ScannerUtils:1.0.2'
+
 }
