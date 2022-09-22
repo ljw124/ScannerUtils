@@ -1,1 +1,1 @@
-include ':app', ':scannerutils'
+include ':app', ':scannerutils', ':webviewutils'
