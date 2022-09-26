@@ -24,7 +24,7 @@ allprojects {
 	}
 	
 ```
- 
+ -------------------  start 扫码工具类示例 start  -----------------------
   Step 3. 在需要扫码时调用(一般是点击扫码图标):
   ```javascript
   startActivityForResult(new Intent(MainActivity.this, CaptureActivity.class), CaptureActivity.REQUEST_CODE);
@@ -41,4 +41,6 @@ allprojects {
         }
     }
     ```
+    
+    -------------------  end 扫码工具类示例 end  -----------------------
  
