@@ -1,10 +1,12 @@
 ## 为什么需要ScannerUtils？
 * 添加依赖，一行代码快速集成二维码/条形码扫描。
 * 针对扫码识别速度慢做了一些优化，识别速度比Zxing快很多。
-* 解码库Zbar与Zxing融合
+* 解码库Zbar与Zxing融合。
+* 定制部分：WebView工具类。
 
 ## 说明：
 * 为了提高扫码速度，条形码只集成了EAN_13和CODE_128两种比较常用的编码格式。
+* 扫码工具类：CaptureActivity。WebView工具类: WebViewActivity。
 
 ##   以下是ScannerUtils的集成、使用教程，如果有不清楚的地方可以下载demo看看:
 Step 1.先在 build.gradle(Project:XXXX) 的 repositories 添加:
@@ -20,7 +22,7 @@ allprojects {
   Step 2. 然后在 build.gradle(Module:app) 的 dependencies 添加:
   ```javascript
   dependencies {
-  		implementation 'com.github.ljw124:ScannerUtils:1.0.3'
+  		implementation 'com.github.ljw124:ScannerUtils:1.0.8'
 	}
 	
 ```
