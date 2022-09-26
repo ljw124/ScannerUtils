@@ -24,7 +24,7 @@ allprojects {
 	}
 	
 ```
- -------------------  start 扫码工具类示例 start  -----------------------
+## 扫码工具类示例  
   Step 3. 在需要扫码时调用(一般是点击扫码图标):
   ```javascript
   startActivityForResult(new Intent(MainActivity.this, CaptureActivity.class), CaptureActivity.REQUEST_CODE);
@@ -40,7 +40,40 @@ allprojects {
             String msg = extras.getString("msg").trim();
         }
     }
-    ```
-    
-    -------------------  end 扫码工具类示例 end  -----------------------
+   ```
+   
+ ## WebView工具类示例-这部分是定制功能
+ Step 5. 在使用定制WebView工具类时调用(如点击按钮):
+ ```javascript
+Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+intent.putExtra("url", "http://vouchertest.bpsinopec.com/voucher-web-app-test/test.html");
+intent.putExtra("type", "cancel"); //请求类型
+//下面是请求参数，传HdPayMentRequest对象或HdPayCancle对象
+String params = "{\"newOrderNumber\":\"3211a220829144151\",\"oldOrderNumber\":\"3211a220829144059\"}";
+HdPayCancle request = GsonUtil.deser(params, HdPayCancle.class);
+Bundle bundle = new Bundle();
+bundle.putSerializable("params", request);
+intent.putExtras(bundle);
+startActivityForResult(intent, WebTestActivity.REQUEST_CODE);
+```
+
+ Step 6. 在onActivityResult方法中接收WebView页面返回的结果:
+ ```javascript
+ @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == WebTestActivity.REQUEST_CODE && resultCode == WebTestActivity.RESULT_CODE && null != data) {
+            Bundle extras = data.getExtras();
+            String result = extras.getString("result").trim();
+	    String requestType = extras.getString("type").trim(); // payment-支付，cancel-冲销
+            if (("payment").equals(requestType)) {
+                paymentResponse = GsonUtil.deser(result, FinishPaymentResponse.class);
+            } else if ("cancel".equals(requestType)) {
+                cancleResponse = GsonUtil.deser(result, PayMentCancleResponse.class);
+            }
+            tvMsg.setText(result);
+        }
+    }
+ ```
+ 
  
