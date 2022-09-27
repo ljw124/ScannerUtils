@@ -7,11 +7,27 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tv_msg"
+        android:id="@+id/tv_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="55dp"/>
+
+    <Button
+        android:id="@+id/btn_wv"
+        android:text="跳转"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"/>
 
     <Button
         android:id="@+id/btn_scan"

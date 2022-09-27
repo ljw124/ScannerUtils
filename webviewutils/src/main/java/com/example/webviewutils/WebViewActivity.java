@@ -28,7 +28,7 @@ public class WebViewActivity extends AppCompatActivity {
     public static final int RESULT_CODE = 4;
     private HdPayMentRequest payMentRequest;
     private HdPayCancle payCancle;
-    private String requestType = "";
+    private String requestType = ""; //payment-支付，cancel-冲销
     private String webUrl = "";
 
     @Override
@@ -74,6 +74,7 @@ public class WebViewActivity extends AppCompatActivity {
         public void pageFinish(String result) {
             Intent intent = new Intent(WebViewActivity.this, AppCompatActivity.class);
             intent.putExtra("result", result);
+            intent.putExtra("type", requestType);
             setResult(RESULT_CODE, intent);
             finish();
         }

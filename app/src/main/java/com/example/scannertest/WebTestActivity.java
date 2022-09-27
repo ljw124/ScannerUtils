@@ -1,8 +1,5 @@
 package com.example.scannertest;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -17,18 +14,14 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.widget.RelativeLayout;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.example.scannertest.bean.FinishPaymentResponse;
-import com.example.scannertest.bean.HdPayCancle;
-import com.example.scannertest.bean.HdPayMentRequest;
-import com.example.webviewutils.WebViewActivity;
-import com.google.gson.Gson;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.webviewutils.GsonUtil;
+import com.example.webviewutils.bean.HdPayCancle;
+import com.example.webviewutils.bean.HdPayMentRequest;
 import com.just.agentweb.AgentWeb;
 import com.just.agentweb.AgentWebConfig;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class WebTestActivity extends AppCompatActivity {
 
@@ -40,6 +33,7 @@ public class WebTestActivity extends AppCompatActivity {
     public static final int RESULT_CODE = 4;
     private TimeCount timeCount;
     private String requestStr = "";
+    private String type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +46,7 @@ public class WebTestActivity extends AppCompatActivity {
     private void  initView() {
         relativeLayout = findViewById(R.id.rl_content);
         String url = getIntent().getStringExtra("url");
-        String type = getIntent().getStringExtra("type");
+        type = getIntent().getStringExtra("type");
         HdPayMentRequest request = (HdPayMentRequest) getIntent().getSerializableExtra("params");
         requestStr = GsonUtil.ser(request);
         Log.e("ser", requestStr);
@@ -93,10 +87,11 @@ public class WebTestActivity extends AppCompatActivity {
         @Override
         public void onFinish() {// 计时完毕
             timeCount.cancel();
-//            Intent intent = new Intent(WebTestActivity.this, AppCompatActivity.class);
-//            intent.putExtra("result", "{\"echoCode\":\"success\",\"status\":\"1\",\"voucherNum\":0,\"noVoucherNum\":0}");
-//            setResult(RESULT_CODE, intent);
-//            finish();
+            Intent intent = new Intent(WebTestActivity.this, AppCompatActivity.class);
+            intent.putExtra("result", "{\"echoCode\":\"success\",\"status\":\"1\",\"voucherNum\":0,\"noVoucherNum\":0}");
+            intent.putExtra("type", type);
+            setResult(RESULT_CODE, intent);
+            finish();
         }
     }
 

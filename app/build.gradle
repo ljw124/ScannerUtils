@@ -25,14 +25,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-    implementation 'com.github.ljw124:ScannerUtils:1.0.6'
+    //扫码、webview工具类
+    implementation 'com.github.ljw124:ScannerUtils:1.0.7'
     //agentwebq
     implementation 'com.just.agentweb:agentweb:4.1.4'
     implementation 'com.just.agentweb:filechooser:4.1.4'// (可选)
     implementation 'com.download.library:Downloader:4.1.4'// (可选)
-    //fastjson
-    implementation 'com.alibaba:fastjson:1.2.58'
-    //gson
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    //记录日志
+    implementation 'log4j:log4j:1.2.17'
+    implementation 'com.github.ljw124:LogLibrary:1.0.5'
 }
