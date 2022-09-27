@@ -8,7 +8,7 @@
 * 为了提高扫码速度，条形码只集成了EAN_13和CODE_128两种比较常用的编码格式。
 * 扫码工具类：CaptureActivity。WebView工具类: WebViewActivity。
 
-##   以下是ScannerUtils的集成、使用教程，如果有不清楚的地方可以下载demo看看:
+##   以下是ScannerUtils的集成、使用教程:
 Step 1.先在 build.gradle(Project:XXXX) 的 repositories 添加:
 ```javascript
 allprojects {
@@ -26,7 +26,7 @@ allprojects {
 	}
 	
 ```
-## 扫码工具类示例  
+## 扫码工具类示例（使用WebView工具类此部分忽略）  
   Step 3. 在需要扫码时调用(一般是点击扫码图标):
   ```javascript
   startActivityForResult(new Intent(MainActivity.this, CaptureActivity.class), CaptureActivity.REQUEST_CODE);
@@ -44,7 +44,7 @@ allprojects {
     }
    ```
    
- ## WebView工具类示例-这部分是定制功能
+ ## WebView工具类示例-这部分是定制功能（使用扫码工具类此部分忽略）  
  Step 5. 在使用定制WebView工具类时调用(如点击按钮):
  ```javascript
 Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
