@@ -56,7 +56,7 @@ PersonBean request = GsonUtil.deser(params, PersonBean.class);
 Bundle bundle = new Bundle();
 bundle.putSerializable("params", request);
 intent.putExtras(bundle);
-startActivityForResult(intent, WebTestActivity.REQUEST_CODE);
+startActivityForResult(intent, WebViewActivity.REQUEST_CODE);
 ```
 
  Step 6. 在onActivityResult方法中接收WebView页面返回的结果:
