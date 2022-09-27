@@ -64,7 +64,7 @@ startActivityForResult(intent, WebTestActivity.REQUEST_CODE);
  @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == WebTestActivity.REQUEST_CODE && resultCode == WebTestActivity.RESULT_CODE && null != data) {
+        if (requestCode == WebViewActivity.REQUEST_CODE && resultCode == WebViewActivity.RESULT_CODE && null != data) {
             Bundle extras = data.getExtras();
             String result = extras.getString("result").trim();
 	    String requestType = extras.getString("type").trim(); // payment-支付，cancel-冲销
