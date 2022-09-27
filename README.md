@@ -48,11 +48,11 @@ allprojects {
  Step 5. 在使用定制WebView工具类时调用(如点击按钮):
  ```javascript
 Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-intent.putExtra("url", "http://vouchertest.bpsinopec.com/voucher-web-app-test/test.html");
+intent.putExtra("url", "http://10.25.195.38:8080/test.html");
 intent.putExtra("type", "cancel"); //请求类型
-//下面是请求参数，传HdPayMentRequest对象或HdPayCancle对象
-String params = "{\"newOrderNumber\":\"3211a220829144151\",\"oldOrderNumber\":\"3211a220829144059\"}";
-HdPayCancle request = GsonUtil.deser(params, HdPayCancle.class);
+//下面是请求参数，传序列化对象
+String params = "{\"age\":\"28\",\"sex\":\"男\"}";
+PersonBean request = GsonUtil.deser(params, PersonBean.class);
 Bundle bundle = new Bundle();
 bundle.putSerializable("params", request);
 intent.putExtras(bundle);
@@ -69,9 +69,9 @@ startActivityForResult(intent, WebTestActivity.REQUEST_CODE);
             String result = extras.getString("result").trim();
 	    String requestType = extras.getString("type").trim(); // payment-支付，cancel-冲销
             if (("payment").equals(requestType)) {
-                paymentResponse = GsonUtil.deser(result, FinishPaymentResponse.class);
+                paymentResponse = GsonUtil.deser(result, PersonBean.class);
             } else if ("cancel".equals(requestType)) {
-                cancleResponse = GsonUtil.deser(result, PayMentCancleResponse.class);
+                cancleResponse = GsonUtil.deser(result, GoodsBean.class);
             }
             tvMsg.setText(result);
         }
